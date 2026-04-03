@@ -85,3 +85,13 @@ alias cd="z"
 #export PYENV_ROOT="$HOME/.pyenv"
 #[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 #eval "$(pyenv init - zsh)"
+
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
+
+alias gpg="gpg2 --homedir $XDG_DATA_HOME/gnupg"
+
+# opencode
+export PATH=/home/tuxy/.opencode/bin:$PATH
+
+. "$HOME/.local/share/../bin/env"

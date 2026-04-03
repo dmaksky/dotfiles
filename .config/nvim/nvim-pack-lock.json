@@ -1,26 +1,9 @@
 {
   "plugins": {
-    "VectorCode": {
-      "rev": "3eacce5ad1c8e439e7dbeab3a8d6bdb6b8aa1cab",
-      "src": "https://github.com/Davidyz/VectorCode"
-    },
     "blink.cmp": {
       "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "https://github.com/saghen/blink.cmp",
       "version": "1.0.0 - 2.0.0"
-    },
-    "codecompanion": {
-      "rev": "220283adf8e168323ee1e164048f111ca9f3fc99",
-      "src": "ssh://git@gitlab.tcsbank.ru:7999/d.akshevskiy/codecompanion.git",
-      "version": "'nestor'"
-    },
-    "codecompanion-history.nvim": {
-      "rev": "bc1b4fe06eaaf0aa2399be742e843c22f7f1652a",
-      "src": "https://github.com/ravitemer/codecompanion-history.nvim"
-    },
-    "codecompanion-spinner.nvim": {
-      "rev": "7797a81141e5de62eecebf2af561698ed58900dc",
-      "src": "https://github.com/franco-ruggeri/codecompanion-spinner.nvim"
     },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
@@ -41,10 +24,6 @@
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/williamboman/mason.nvim"
-    },
-    "mcphub.nvim": {
-      "rev": "f94e1c8e1aea68c3f8f6df5cf51c752033584fd0",
-      "src": "https://github.com/bahaaza/mcphub.nvim"
     },
     "nvim": {
       "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
