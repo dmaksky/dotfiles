@@ -41,34 +41,27 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Change cursor shape for different vi modes.
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam
-    esac
+# Cursor: block in vi command mode, beam while typing.
+_dotfiles_cursor() {
+  if [[ $KEYMAP == vicmd ]]; then printf '\e[1 q'; else printf '\e[5 q'; fi
 }
+zle -N zle-keymap-select _dotfiles_cursor
+zle -N zle-line-init _dotfiles_cursor
 
-zle -N zle-keymap-select
-zle-line-init() {
-    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
-    echo -ne "\e[5 q"
-}
-zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
+# Reset the cursor before starting another program.
 autoload -Uz add-zsh-hook
-_dotfiles_cursor() { printf '\e[5 q'; }
-add-zsh-hook preexec _dotfiles_cursor # Use beam shape cursor for each new prompt.
+_dotfiles_preexec() { printf '\e[5 q'; }
+add-zsh-hook preexec _dotfiles_preexec
 
-#bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n'
-bindkey '^[[P' delete-char
+bindkey -M viins '^[[3~' delete-char
+bindkey -M vicmd '^[[3~' vi-delete-char
+bindkey -M visual '^[[3~' vi-delete
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-bindkey -M vicmd '^[[P' vi-delete-char
+# Edit the command in Neovim with Ctrl-e.
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M viins '^e' edit-command-line
 bindkey -M vicmd '^e' edit-command-line
-bindkey -M visual '^[[P' vi-delete
 
 ### FZF ###
 if (( $+commands[fzf] )); then
@@ -91,6 +84,7 @@ fi
 
 ### Prompt ###
 if (( $+commands[starship] )); then
+  export STARSHIP_CONFIG="${STARSHIP_CONFIG:-$XDG_CONFIG_HOME/starship.toml}"
   eval "$(starship init zsh)"
 else
   PROMPT='%~ %# '

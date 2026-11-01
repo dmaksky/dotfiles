@@ -16,7 +16,7 @@ vim.keymap.set('n', '<leader>foc', builtin.lsp_outgoing_calls,    { desc = 'Tele
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
--- Split lines
+-- Join lines without moving the cursor
 vim.keymap.set("n", "J", "mzJ`z")
 
 -- Navigation
@@ -25,23 +25,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Hacks ???
+-- Paste without replacing the register; explicit clipboard yanks
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
-
--- Visual * / # search
-_G.VSetSearch = function(cmdtype)
-  local temp = vim.fn.getreg("s")
-  vim.cmd('normal! gv"sy')
-  vim.fn.setreg(
-    "/",
-    "\\V" .. vim.fn.substitute(vim.fn.escape(vim.fn.getreg("s"), cmdtype .. "\\"), "\n", "\\n", "g")
-  )
-  vim.fn.setreg("s", temp)
-end
-vim.keymap.set("x", "*", [[:<C-u>lua VSetSearch('/')<CR>/<C-R>=@/<CR><CR>]], { noremap = true })
-vim.keymap.set("x", "#", [[:<C-u>lua VSetSearch('?')<CR>?<C-R>=@/<CR><CR>]], { noremap = true })
 
 vim.keymap.set({ 'n', 'x' }, '<leader>cf', function()
   vim.lsp.buf.format({ async = false })

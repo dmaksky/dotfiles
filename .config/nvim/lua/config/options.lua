@@ -8,10 +8,9 @@ opt.relativenumber = true
 -- Scrolling
 opt.scrolloff = 8
 opt.sidescrolloff = 8
-opt.sidescroll=1
 opt.wrap = false
 
--- Signes
+-- Sign column
 opt.signcolumn = 'yes'
 
 -- Don't print welcome message
@@ -33,37 +32,22 @@ opt.expandtab = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 4
-opt.autoindent = true
 opt.smartindent = true
 opt.breakindent = true
 opt.textwidth = 0
 opt.colorcolumn = "81"
-opt.formatoptions = {
-  c = true,
-  q = true,
-  j = true,
-  r = false,
-  o = false,
-  n = true,
-  l = true,
-}
+opt.formatoptions = 'cqjnl'
 
 -- Searching
 opt.ignorecase = true
 opt.smartcase = true
 opt.inccommand = "split"
-opt.incsearch = true
 opt.infercase = true
 
 -- Files and Buffers
 opt.clipboard = "unnamedplus"
 opt.swapfile = false
-opt.backup = false
-opt.writebackup = true
-opt.autoread = true
 opt.undofile = true
-opt.undolevels = 1000
--- opt.shada = "!,'1000,<50,s10,h"
 opt.confirm = true
 
 -- Splits
@@ -74,16 +58,12 @@ opt.splitright = true
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevelstart = 99
-opt.foldenable = true
 
 -- Mouse
 opt.mouse = "a"
-opt.mousemoveevent = true
 opt.whichwrap = 'h,l,<,>,[,]'
--- opt.keymodel = "startsel,stopsel"
 
--- Autoindent
-opt.wildmenu = true
+-- Command-line completion
 opt.wildmode = "longest:full,full"
 opt.wildignore:append {
   '*.o',
