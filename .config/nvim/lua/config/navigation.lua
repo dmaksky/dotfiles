@@ -1,7 +1,7 @@
 local directions = { h = 'L', j = 'D', k = 'U', l = 'R' }
 
 for key, dir in pairs(directions) do
-  vim.keymap.set('n', '<C-' .. key .. '>', function()
+  vim.keymap.set('n', '<C-w>' .. key, function()
     local current = vim.api.nvim_get_current_win()
 
     -- Try moving inside Neovim.
@@ -18,4 +18,3 @@ for key, dir in pairs(directions) do
     end
   end, { desc = 'Navigate Neovim/tmux ' .. key })
 end
-
