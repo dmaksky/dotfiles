@@ -1,5 +1,4 @@
 vim.pack.add({
-  'https://github.com/tpope/vim-surround',
   'https://github.com/nvim-lua/plenary.nvim',
   'https://github.com/nvim-telescope/telescope.nvim',
   'https://github.com/mason-org/mason.nvim',

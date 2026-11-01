@@ -43,7 +43,8 @@ end
 vim.keymap.set("x", "*", [[:<C-u>lua VSetSearch('/')<CR>/<C-R>=@/<CR><CR>]], { noremap = true })
 vim.keymap.set("x", "#", [[:<C-u>lua VSetSearch('?')<CR>?<C-R>=@/<CR><CR>]], { noremap = true })
 
-vim.keymap.set('n', '<leader>cf', function() require('config.format').format() end,
-  { desc = 'Format buffer (explicit)' })
+vim.keymap.set({ 'n', 'x' }, '<leader>cf', function()
+  vim.lsp.buf.format({ async = false })
+end, { desc = 'Format buffer or selection (LSP)' })
 vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'File browser' })
 vim.keymap.set('n', '<leader>ud', '<cmd>undolist<CR>', { desc = 'Undo branches' })
