@@ -1,16 +1,10 @@
-local g = vim.g
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-g.mapleader = ' '
-g.maplocalleader = g.mapleader
-
-if vim.fn.has('termguicolors') == 1 then
-  vim.opt.termguicolors = true
-end
-
-require("config.plugins")
-require("plugins")
-
-require("config.lsp")
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
+require('config.options')
+require('config.plugins')
+require('config.lsp')
+require('config.autocmds')
+require('config.keymaps')
+require('config.statusline')
+require('config.navigation')

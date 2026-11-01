@@ -1,8 +1,0 @@
-require("plugins.treesitter")
-require("plugins.undotree")
-require("plugins.lazydev")
---require("plugins.codecompanion")
-require("plugins.markview")
-require("plugins.lualine")
-require("plugins.blinkcmp")
---require("plugins.mcphub")

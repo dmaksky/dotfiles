@@ -30,9 +30,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
--- Markview
---vim.api.nvim_set_keymap("i", "<leader>m", "<CMD>Markview HybridToggle<CR>", { noremap = true, desc = "Toggles `hybrid mode` globally." });
-
 -- Visual * / # search
 _G.VSetSearch = function(cmdtype)
   local temp = vim.fn.getreg("s")
@@ -45,3 +42,8 @@ _G.VSetSearch = function(cmdtype)
 end
 vim.keymap.set("x", "*", [[:<C-u>lua VSetSearch('/')<CR>/<C-R>=@/<CR><CR>]], { noremap = true })
 vim.keymap.set("x", "#", [[:<C-u>lua VSetSearch('?')<CR>?<C-R>=@/<CR><CR>]], { noremap = true })
+
+vim.keymap.set('n', '<leader>cf', function() require('config.format').format() end,
+  { desc = 'Format buffer (explicit)' })
+vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'File browser' })
+vim.keymap.set('n', '<leader>ud', '<cmd>undolist<CR>', { desc = 'Undo branches' })

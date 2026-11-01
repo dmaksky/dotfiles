@@ -36,8 +36,8 @@ opt.softtabstop = 4
 opt.autoindent = true
 opt.smartindent = true
 opt.breakindent = true
-opt.textwidth = 80
-opt.colorcolumn = "+1"
+opt.textwidth = 0
+opt.colorcolumn = "81"
 opt.formatoptions = {
   c = true,
   q = true,
@@ -59,7 +59,7 @@ opt.infercase = true
 opt.clipboard = "unnamedplus"
 opt.swapfile = false
 opt.backup = false
-opt.writebackup = false
+opt.writebackup = true
 opt.autoread = true
 opt.undofile = true
 opt.undolevels = 1000
@@ -72,6 +72,7 @@ opt.splitright = true
 
 -- Folding
 opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevelstart = 99
 opt.foldenable = true
 
@@ -112,4 +113,9 @@ g.netrw_list_hide = [[\(^\|\s\s\)\zs\.\S\+]]
 opt.guicursor = "i:block"
 
 -- Colorscheme
-vim.cmd.colorscheme 'catppuccin-latte'
+opt.termguicolors = true
+opt.background = 'light'
+vim.cmd.colorscheme('catppuccin')
+
+opt.completeopt = { "menu", "menuone", "noselect", "popup" }
+opt.laststatus = 3

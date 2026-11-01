@@ -1,28 +1,15 @@
 vim.pack.add({
-    'https://github.com/nvim-treesitter/nvim-treesitter',
-    'https://github.com/catppuccin/nvim',
-    "https://github.com/neovim/nvim-lspconfig",
-    "https://github.com/williamboman/mason.nvim",
-    "https://github.com/williamboman/mason-lspconfig.nvim",
-    "https://github.com/nvim-lua/plenary.nvim",
-    "https://github.com/nvim-telescope/telescope.nvim",
-    "http://github.com/tpope/vim-fugitive",
-    "https://github.com/mbbill/undotree",
-    "http://github.com/folke/lazydev.nvim",
-    --[[
-    {
-        src = "ssh://git@gitlab.tcsbank.ru:7999/d.akshevskiy/codecompanion.git",
-        version = "nestor",
-    },
-    --]]
-    "https://github.com/OXY2DEV/markview.nvim",
-    "https://github.com/nvim-lualine/lualine.nvim",
-    --"https://github.com/franco-ruggeri/codecompanion-spinner.nvim",
-    --"https://github.com/ravitemer/codecompanion-history.nvim",
-    {
-        src = "https://github.com/saghen/blink.cmp",
-        version = vim.version.range("1.*"),
-    },
-    --"https://github.com/bahaaza/mcphub.nvim",
-    --"https://github.com/Davidyz/VectorCode",
+  'https://github.com/tpope/vim-surround',
+  'https://github.com/nvim-lua/plenary.nvim',
+  'https://github.com/nvim-telescope/telescope.nvim',
+  'https://github.com/mason-org/mason.nvim',
+  'https://github.com/mason-org/mason-lspconfig.nvim',
+  'https://github.com/neovim/nvim-lspconfig',
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
 })
+
+vim.api.nvim_create_user_command('TSInstallDefaults', function()
+  require('nvim-treesitter').install({
+    'c', 'cpp', 'python', 'lua', 'vim', 'vimdoc', 'bash', 'markdown', 'markdown_inline',
+  })
+end, { desc = 'Install the dotfiles parser set (explicit network operation)' })
