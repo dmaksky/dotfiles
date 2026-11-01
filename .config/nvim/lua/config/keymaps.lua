@@ -1,37 +1,68 @@
--- Flush colors when searching
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>', { silent = true })
+local map = vim.keymap.set
+local builtin = require('telescope.builtin')
+
+-- Search
+map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff',  builtin.find_files,            { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg',  builtin.live_grep,             { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb',  builtin.buffers,               { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fd',  builtin.diagnostics,           { desc = 'Telescope diagnostics' })
-vim.keymap.set('n', '<leader>fws', builtin.lsp_workspace_symbols, { desc = 'Telescope workspace symbols' })
-vim.keymap.set('n', '<leader>fr',  builtin.lsp_references,        { desc = 'Telescope references' })
-vim.keymap.set('n', '<leader>fic', builtin.lsp_incoming_calls,    { desc = 'Telescope incoming calls' })
-vim.keymap.set('n', '<leader>foc', builtin.lsp_outgoing_calls,    { desc = 'Telescope outgoing calls' })
+vim.keymap.set('n', '<leader>ff', function()
+  builtin.find_files({
+    hidden = true,
+    find_command = { 'rg', '--files', '-g', '!.git/' },
+  })
+end, { desc = 'Find files' })
+
+vim.keymap.set('n', '<leader>fg', function()
+  builtin.live_grep({
+    additional_args = { '--hidden', '-g', '!.git/' },
+  })
+end, { desc = 'Live grep' })
+
+map('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
+map('n', '<leader>fd', builtin.diagnostics, { desc = 'Diagnostics' })
+map('n', '<leader>fws', builtin.lsp_workspace_symbols, { desc = 'Workspace symbols' })
+map('n', '<leader>fr', builtin.lsp_references, { desc = 'References' })
+map('n', '<leader>fic', builtin.lsp_incoming_calls, { desc = 'Incoming calls' })
+map('n', '<leader>foc', builtin.lsp_outgoing_calls, { desc = 'Outgoing calls' })
 
 -- Move lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+map('x', 'J', ":m '>+1<CR>gv=gv")
+map('x', 'K', ":m '<-2<CR>gv=gv")
 
--- Join lines without moving the cursor
-vim.keymap.set("n", "J", "mzJ`z")
+-- Join lines without moving cursor
+map('n', 'J', 'mzJ`z')
 
--- Navigation
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+-- Scrolling
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+map('n', 'n', 'nzzzv')
+map('n', 'N', 'Nzzzv')
 
--- Paste without replacing the register; explicit clipboard yanks
-vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+-- Clipboard
+map('x', '<leader>p', '"_dP')
+map({ 'n', 'x' }, '<leader>y', '"+y')
+map('n', '<leader>Y', '"+Y')
 
-vim.keymap.set({ 'n', 'x' }, '<leader>cf', function()
-  vim.lsp.buf.format({ async = false })
-end, { desc = 'Format buffer or selection (LSP)' })
-vim.keymap.set('n', '<leader>e', '<cmd>Explore<CR>', { desc = 'File browser' })
-vim.keymap.set('n', '<leader>ud', '<cmd>undolist<CR>', { desc = 'Undo branches' })
+-- Formatting
+map({ 'n', 'x' }, '<leader>cf', function()
+  vim.lsp.buf.format()
+end, { desc = 'Format with LSP' })
+
+-- File browser
+map('n', '<leader>e', function()
+  local file = vim.api.nvim_buf_get_name(0)
+  local dir = file ~= '' and vim.fs.dirname(file) or vim.fn.getcwd()
+
+  vim.cmd.edit(vim.fn.fnameescape(dir))
+end, { desc = 'File browser' })
+
+-- Undotree
+map('n', '<leader>u', function()
+  vim.cmd.packadd('nvim.undotree')
+  vim.cmd.Undotree()
+end, { desc = 'Toggle Undotree' })
+
+-- Restart
+map('n', '<leader>r', '<cmd>restart<CR>', {
+  desc = 'Restart Neovim',
+})

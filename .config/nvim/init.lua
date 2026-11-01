@@ -3,8 +3,11 @@ vim.g.maplocalleader = ' '
 
 require('config.options')
 require('config.plugins')
-require('config.lsp')
+
+vim.cmd.colorscheme('catppuccin')
+
 require('config.autocmds')
+require('config.lsp')
 require('config.keymaps')
-require('config.statusline')
 require('config.navigation')
+require('config.statusline')
