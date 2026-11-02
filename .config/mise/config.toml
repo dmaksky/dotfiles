@@ -1,0 +1,8 @@
+[tools]
+go = "1.27.3"
+python = "latest"
+
+[env]
+GOPATH = "${HOME}/.local/share/go"
+GOBIN = "${HOME}/.local/bin/"
+

@@ -1,5 +1,37 @@
 {
   "plugins": {
+    "VectorCode": {
+      "rev": "3eacce5ad1c8e439e7dbeab3a8d6bdb6b8aa1cab",
+      "src": "https://github.com/Davidyz/VectorCode"
+    },
+    "blink.cmp": {
+      "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "codecompanion": {
+      "rev": "6c1517a405602b457115d4f4973be04a1fa950a0",
+      "src": "ssh://git@gitlab.tcsbank.ru:7999/d.akshevskiy/codecompanion.git"
+    },
+    "codecompanion-history.nvim": {
+      "rev": "bc1b4fe06eaaf0aa2399be742e843c22f7f1652a",
+      "src": "https://github.com/ravitemer/codecompanion-history.nvim"
+    },
+    "codecompanion-spinner.nvim": {
+      "rev": "7797a81141e5de62eecebf2af561698ed58900dc",
+      "src": "https://github.com/franco-ruggeri/codecompanion-spinner.nvim"
+    },
+    "lazydev.nvim": {
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "src": "http://github.com/folke/lazydev.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/nvim-lualine/lualine.nvim"
+    },
+    "markview.nvim": {
+      "rev": "1861f959599ae03cfd59f56222a542035b0cd947",
+      "src": "https://github.com/OXY2DEV/markview.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "25f609e7fca78af7cede4f9fa3af8a94b1c4950b",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -7,6 +39,14 @@
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mcphub.nvim": {
+      "rev": "f94e1c8e1aea68c3f8f6df5cf51c752033584fd0",
+      "src": "https://github.com/bahaaza/mcphub.nvim"
+    },
+    "nvim": {
+      "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
+      "src": "https://github.com/catppuccin/nvim"
     },
     "nvim-lspconfig": {
       "rev": "8e2084bf5e40c79c1f42210a6ef96a0a4793a763",
@@ -24,6 +64,14 @@
     "telescope.nvim": {
       "rev": "cfb85dcf7f822b79224e9e6aef9e8c794211b20b",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "undotree": {
+      "rev": "6fa6b57cda8459e1e4b2ca34df702f55242f4e4d",
+      "src": "https://github.com/mbbill/undotree"
+    },
+    "vim-fugitive": {
+      "rev": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0",
+      "src": "http://github.com/tpope/vim-fugitive"
     }
   }
 }

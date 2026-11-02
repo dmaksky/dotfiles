@@ -24,6 +24,7 @@ map('n', '<leader>fws', builtin.lsp_workspace_symbols, { desc = 'Workspace symbo
 map('n', '<leader>fr', builtin.lsp_references, { desc = 'References' })
 map('n', '<leader>fic', builtin.lsp_incoming_calls, { desc = 'Incoming calls' })
 map('n', '<leader>foc', builtin.lsp_outgoing_calls, { desc = 'Outgoing calls' })
+map('n', '<leader>fgs', builtin.git_status, { desc = 'Git status' })
 
 -- Move lines
 map('x', 'J', ":m '>+1<CR>gv=gv")

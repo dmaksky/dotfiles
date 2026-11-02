@@ -117,3 +117,11 @@ fi
 if (( $+commands[starship] )); then
   eval "$(starship init zsh)"
 fi
+
+# Normal TERM env in ssh sessions
+ssh() {
+  TERM=xterm-256color command ssh "$@"
+}
+
+# Mise
+eval "$(mise activate zsh)"
