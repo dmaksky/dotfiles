@@ -44,6 +44,10 @@
       "rev": "f94e1c8e1aea68c3f8f6df5cf51c752033584fd0",
       "src": "https://github.com/bahaaza/mcphub.nvim"
     },
+    "md-render.nvim": {
+      "rev": "4f6d73a276356bc23dbffa594d2a54dc978e98bb",
+      "src": "https://github.com/delphinus/md-render.nvim"
+    },
     "nvim": {
       "rev": "a7788416689dbefea659d9e9415c87926b0ba5d8",
       "src": "https://github.com/catppuccin/nvim"
@@ -56,6 +60,10 @@
       "rev": "c82bf96f0a773d85304feeb695e1e23b2207ac35",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
+    },
+    "nvim-web-devicons": {
+      "rev": "ec309a0eaff6ea967e58c275996155ab5c16938d",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "plenary.nvim": {
       "rev": "b9fd5226c2f76c951fc8ed5923d85e4de065e509",
