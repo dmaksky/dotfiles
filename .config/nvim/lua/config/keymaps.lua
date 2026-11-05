@@ -12,6 +12,7 @@ vim.keymap.set('n', '<leader>ff', function()
   })
 end, { desc = 'Find files' })
 
+-- search hidden files in telescope (except .git)
 vim.keymap.set('n', '<leader>fg', function()
   builtin.live_grep({
     additional_args = { '--hidden', '-g', '!.git/' },

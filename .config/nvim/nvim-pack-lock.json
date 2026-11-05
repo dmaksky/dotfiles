@@ -8,6 +8,10 @@
       "rev": "451168851e8e2466bc97ee3e026c3dcb9141ce07",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "catppuccin": {
+      "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
+      "src": "https://github.com/catppuccin/nvim"
+    },
     "codecompanion": {
       "rev": "6c1517a405602b457115d4f4973be04a1fa950a0",
       "src": "ssh://git@gitlab.tcsbank.ru:7999/d.akshevskiy/codecompanion.git"
