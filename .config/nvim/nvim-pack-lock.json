@@ -12,18 +12,6 @@
       "rev": "edefef779ab08ce1a4a404713e3012b0d202bd35",
       "src": "https://github.com/catppuccin/nvim"
     },
-    "codecompanion": {
-      "rev": "6c1517a405602b457115d4f4973be04a1fa950a0",
-      "src": "ssh://git@gitlab.tcsbank.ru:7999/d.akshevskiy/codecompanion.git"
-    },
-    "codecompanion-history.nvim": {
-      "rev": "bc1b4fe06eaaf0aa2399be742e843c22f7f1652a",
-      "src": "https://github.com/ravitemer/codecompanion-history.nvim"
-    },
-    "codecompanion-spinner.nvim": {
-      "rev": "7797a81141e5de62eecebf2af561698ed58900dc",
-      "src": "https://github.com/franco-ruggeri/codecompanion-spinner.nvim"
-    },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
       "src": "http://github.com/folke/lazydev.nvim"
